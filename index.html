@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MERRY CHRISTMAS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div id="as" class="christmas-message">Merry Christmas</div>
+    <div class="tree-container">
+      <img
+        src="https://github.com/Panbap/datapanbap/blob/main/image/big_tree.png?raw=true"
+        alt="Cây thông"
+        class="tree-icon"
+      />
+    </div>
+
+    <div class="container">
+      <button id="showButton">Thiệp nè</button>
+    </div>
+
+    <div id="guideInfo" class="hidden">
+      <button id="closeButton" class="close-btn">X</button>
+      <div id="ax" class="card">
+        <div class="imgBox">
+          <div class="bark"></div>
+          <img
+            src="https://github.com/Panbap/datapanbap/blob/main/image/mery.png?raw=true"
+          />
+        </div>
+        <div class="details">
+          <h4 class="color2 margin">(MERRY CHRISTMAS)</h4>
+          <p>Noel is comming and</p>
+          <p>what I need is a No-end Love</p>
+          <p>Chúc em mùa lễ ấm áp và ngọt</p>
+          <p>ngào như tình yêu của chúng ta.</p>
+          <p>Hy vọng chúng ta sẽ có thêm nhiều</p>
+          <p>kỷ niệm đẹp trong năm tới.</p>
+          <p class="text-right">Chúc mừng Giáng Sinh!</p>
+          <p class="text-right">Chúc em ngủ ngon</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Tạo đối tượng Audio với file nhạc ban đầu
+      const audio = new Audio("./nhac.mp3");
+      let isMusicPlaying = false;
+      let oldMusicTime = 0; // Biến lưu vị trí dừng nhạc cũ
+
+      // Hàm phát nhạc
+      function startExperience() {
+        if (!isMusicPlaying) {
+          audio.play(); // Phát nhạc
+          audio.loop = true; // Lặp lại nhạc liên tục
+          isMusicPlaying = true;
+          console.log("🎵 Nhạc đang phát!");
+        }
+      }
+
+      // Hàm dừng nhạc hiện tại và phát nhạc mới
+      function changeMusic() {
+        // Lưu lại vị trí hiện tại của nhạc cũ
+        oldMusicTime = audio.currentTime;
+
+        // Dừng nhạc hiện tại và chuyển sang nhạc mới
+        audio.pause();
+        audio.currentTime = 0; // Đặt lại vị trí phát nhạc mới về đầu
+        audio.src = "./nn3.mp3";
+        audio.loop = false; // Không lặp lại nhạc mới
+        audio.play();
+        console.log("🎵 Nhạc mới đang phát!");
+
+        // Lắng nghe sự kiện khi nhạc mới kết thúc
+        audio.onended = function () {
+          console.log(
+            "🎵 Nhạc mới đã kết thúc. Phát tiếp nhạc cũ từ vị trí dừng."
+          );
+          audio.src = "./nhac.mp3"; // Gán lại nhạc cũ
+          audio.currentTime = oldMusicTime; // Phát tiếp từ vị trí dừng trước đó
+          audio.loop = true; // Lặp lại nhạc cũ
+          audio.play(); // Phát tiếp nhạc cũ
+        };
+      }
+
+      // Lắng nghe sự kiện click trên toàn bộ màn hình để phát nhạc đầu tiên
+      document.body.addEventListener("click", function () {
+        startExperience();
+      });
+
+      // Lắng nghe sự kiện click vào "Chúc em ngủ ngon" bên trong thẻ .details
+      document
+        .querySelector(".details")
+        .addEventListener("click", function (event) {
+          if (event.target.classList.contains("text-right")) {
+            changeMusic();
+          }
+        });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
