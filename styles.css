@@ -1,15 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Indie+Flower");
 @import url("https://fonts.googleapis.com/css?family=Amatic+SC");
 @font-face {
-    font-family: 'Merry'; 
-    src: url('./Merry.ttf') format('truetype'); 
-    font-weight: normal; 
-    font-style: normal; 
+  font-family: "Merry";
+  src: url("./Merry.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
   font-family: Arial, sans-serif;
-  background-image: url("https://github.com/Panbap/datapanbap/blob/main/image/tres.png?raw=true");
+  background-image: url("./2.jpg");
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
@@ -126,7 +126,7 @@ body {
 #showButton {
   background-color: #f56060;
   color: white;
-  font-family:'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 16px;
   padding: 15px 32px;
   border: none;
@@ -232,7 +232,7 @@ a {
   width: 100%;
   text-align: center;
   padding: 10px 0;
-  font-family:'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 12px;
   color: #ffffff;
 }
@@ -253,7 +253,7 @@ h4 {
 .card {
   color: #013243;
   position: absolute;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   letter-spacing: 1px;
   top: 50%;
   left: 50%;
